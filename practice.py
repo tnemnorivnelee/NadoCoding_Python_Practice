@@ -1,75 +1,72 @@
-# weather = input("오늘 날씨는 어때요? ")
+# def open_account():
+#     print("새로운 계좌가 생성되었습니다")
 
-# if weather == "비" or weather == "눈":
-#     print("우산을 챙기세요")
-# elif weather == "미세먼지":
-#     print("마스크를 챙기세요")
-# else:
-#     print("오늘은 준비물이 필요없어요")
+# open_account()
 
-# temp = int(input("기온은 어때요? "))
+# def deposit(balance, money):
+#     print("입금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance + money))
+#     return balance + money
 
-# if 30 <= temp:
-#     print("너무 더워요. 나가지 마세요")
-# elif 10 <= temp and temp < 30:
-#     print("괜찮은 날씨에요")
-# elif 0 <= temp < 10:
-#     print("외투를 챙기세요")
-# else:
-#     print("너무 추워요. 나가지 마세요")
+# def withdraw(balance, money):
+#     if balance >= money:
+#         print("출금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance - money))
+#         return balance - money
+#     else:
+#         print("출금이 완료되지 않았습니다. 잔액은 {0} 원입니다.".format(balance))
+#         return balance
 
-# print("대기번호 : 1")
-# print("대기번호 : 2")
-# print("대기번호 : 3")
-# print("대기번호 : 4")
+# def withdraw_night(balance, money):
+#     commission = 100
+#     return commission, balance - money - commission
 
-# for waiting_no in range(1, 6): # 1,2,3,4,5
-#     print("대기번호 : {0}".format(waiting_no))
+# balance = 0
+# balance = deposit(balance, 1000)
+# # balance = withdraw(balance, 2000)
+# # balance = withdraw(balance, 500)
+# commission, balance = withdraw_night(balance, 500)
+# print("수수료는 {0} 원이며, 잔액은 {1} 원입니다.".format(commission, balance))
 
-# starbucks = ["아이언맨", "토르", "아이엠 그루트"]
+# def profile(name, age, main_lang):
+#     print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
 
-# for customer in starbucks:
-#     print("{0}, 커피가 준비되었습니다".format(customer))
+# def profile(name, age=17, main_lang="파이썬"):
+#     print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}".format(name, age, main_lang))
 
-# customer = "토르"
-# index = 5
-# while index >= 1:
-#     print("{0}, 커피가 준비되었습니다. {1}번 남았어요".format(customer, index))
-#     index += -1
-#     if index == 0:
-#         print("커피는 폐기처분 되었습니다")
+# profile("유재석")
+# profile("김태호")
 
-# customer = "아이언맨"
-# index = 0
-# while True:
-#     print("{0}, 커피가 준비되었습니다. 호출 {1}회".format(customer, index))
-#     index += 1
+# def profile(name, age, main_lang):
+#     print(name, age, main_lang)
 
-# customer = "토르"
-# person = "Unknown"
+# profile(name="lee", main_lang="python", age=20)
 
-# while person != customer:
-#     print("{0}, 커피가 준비되었습니다.".format(customer))
-#     person = input("이름이 어떻게 되세요? ")
-    
-# absent = [2, 5] # 결석
-# no_book = [7] # 책이 없음
+# def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+#     print("name : {0}\tage : {1}\t".format(name, age), end=" ")
+#     print(lang1, lang2, lang3, lang4, lang5)
 
-# for student in range(1, 11):
-#     if student in absent:
-#         continue
-#     elif student in no_book:
-#         print("오늘 수업은 여기까지. {0}은 교무실로 따라와!".format(student))
-#         break
-#     print("{0}, 책을 읽어봐".format(student))
+# def profile(name, age, *language):
+#     print("name : {0}\tage : {1}\t".format(name, age), end=" ")
+#     for lang in language:
+#         print(lang, end=" ")
+#     print()
 
-students = [1,2,3,4,5]
-print(students)
+# profile("lee", 20, "python", "java", "c", "c++", "c#", "js")
+# profile("kim:", 25, "kotiln", "swift")
 
-students = [i+100 for i in students]
-print(students)
+gun = 10
 
-# 학생 이름을 길이로 변환
-students = ["Iron man", "Thor", "I am groot"]
-students = [i.upper() for i in students]
-print(students)
+def checkpoint(soldiers):
+    global gun
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+    return gun
+
+
+print("전체 총 : {0}".format(gun))
+# checkpoint(2)
+gun = checkpoint_ret(gun, 2)
+print("남은 총 : {0}".format(gun))
