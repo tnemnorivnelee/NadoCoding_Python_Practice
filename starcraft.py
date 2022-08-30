@@ -43,7 +43,7 @@ class Marine(AttackUnit):
             print("{0} : 체력이 부족하여 스팀팩을 사용하지 않습니다.".format(self.name))
     
 # 탱크
-class Tack(AttackUnit):
+class Tank(AttackUnit):
     # 시즈모드 : 탱크를 지상에 고정시켜, 더 높은 파워로 공격 가능. 이동 불가.
     seize_developed = False
     def __init__(self):
